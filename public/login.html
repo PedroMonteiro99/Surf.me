@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Surf.me | Login</title>
+    <link rel="stylesheet" href="stylesheets/login.css">
+    <link rel="icon" href="images/tree.png">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body class="login">
+    <script src="javascripts/login.js"></script>
+    <div class="form-box">
+        <div class="button-box">
+            <div id="btn"></div>
+            <button type="button" class="toggle-btn" onclick="login()">Login</button>
+            <button type="button" class="toggle-btn" onclick="register()">Register</button>
+        </div>
+        <div class="nature-icon">
+            <img src="images/growth.png">
+            <img src="images/planet-earth.png">
+            <img src="images/leaf.png">
+        </div>
+        <form id="login" class="input-group">
+            <input type="text" class="input-field" placeholder="Username" id="nome" required>
+            <input type="password" class="input-field" placeholder="Password" id="palavra" required>
+            <input type="checkbox" class="check-box"><span>Remember Password</span>
+            <button type="button" class="submit-btn" onclick="entrar()">Login</button>
+        </form>
+        <form id="register" class="input-group">
+            <input type="text" class="input-field" placeholder="Username" id="name" required>
+            <input type="email" class="input-field" placeholder="Email" id="email" required>
+            <input type="password" class="input-field" placeholder="Password" id="pass" required>
+            <input type="checkbox" class="check-box"><span>I agree to the Terms & Conditions</span>
+            <button type="button" class="submit-btn" onclick="registar()">Register</button>
+        </form>
+    </div>
+
+    <script>
+        var x = document.getElementById("login");
+        var y = document.getElementById("register");
+        var z = document.getElementById("btn");
+
+        function register() {
+            x.style.left = "-400px";
+            y.style.left = "50px";
+            z.style.left = "110px"
+        }
+        function login() {
+            x.style.left = "50px";
+            y.style.left = "450px";
+            z.style.left = "0px"
+        }
+    </script>
+    <footer>
+        <p>Surf.me, Copyright &copy; 2020</p>
+    </footer>
+</body>
+
+</html>
