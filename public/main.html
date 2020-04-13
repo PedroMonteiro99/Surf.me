@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
     <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap" rel="stylesheet" />
     <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
 </head>
 
@@ -89,24 +90,7 @@
     <main>
         <div id="map">
             <script src="javascripts/leaflet-routing-machine.js"></script>
-            <script>
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(function (position) {
-                        var map = L.map('map').setView([position.coords.latitude, position.coords.longitude], 8);
-                        var attribution = '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors';
-                        var tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-                        var tiles = L.tileLayer(tileUrl, { attribution });
-                        tiles.addTo(map);
-                        control = L.Routing.control({
-                            waypoints: [
-                                L.latLng(position.coords.latitude, position.coords.longitude),
-                                L.latLng(38.7753, -9.34193)
-                            ]
-
-                        }).addTo(map);
-                    })
-                }
-            </script>
+            <script src="javascripts/map.js"></script>
         </div>
     </main>
 </body>
