@@ -4,7 +4,7 @@ var locDAO = require('../models/locDAO');
 
 router.get('/loc', function (req, res, next) {
     locDAO.getFarmLocation(function (status, result) {
-      res.send(result);
+      res.status(200).send(result.data);
     });
 });
 

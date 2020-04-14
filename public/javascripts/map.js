@@ -19,7 +19,7 @@ window.onload = function () {
                     console.log(result)
                     var test = [L.latLng(position.coords.latitude, position.coords.longitude)];
                     for (x in result) {
-                        test.push(L.latLng(result[x].latitude, result[x].longitude))
+                        test.push(L.latLng(result[x].Latitude, result[x].Longitude))
                     }
                     console.log(test)
                     console.log(result)
@@ -27,13 +27,16 @@ window.onload = function () {
                         plan: L.Routing.plan(test, {
                             createMarker: function (x, test, nWps) {
                                 if (x == 0) {
-                                    return L.marker(test.latLng, { draggable: true }).bindPopup('Your Current Location').openPopup();
+                                    return L.marker(test.latLng, { draggable: false }).bindPopup('Your Current Location').openPopup();
                                 }
                                 if (x >= 1) {
-                                    return L.marker(test.latLng, { draggable: true }).bindPopup(result[x - 1].name).openPopup();
+                                    return L.marker(test.latLng, { draggable: false }).bindPopup(""+result[x - 1].idFarm+"").openPopup();
                                 }
                             }
-                        })
+                        }),
+                        routeLine:false,
+                        routeWhileDragging:false,
+                        addWaypoints:false
                     }).addTo(map);
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
