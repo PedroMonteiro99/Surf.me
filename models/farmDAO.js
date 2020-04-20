@@ -18,3 +18,21 @@ module.exports.getCurrentData = function (id, callback, next) {
     })
 }
 
+module.exports.updateFarm = function (obj, callback, next) {
+    mysql.getConnection(function (err, conn) {
+        if (err) {
+            conn.release();
+            next(err);
+        }
+        else conn.query("UPDATE Farm_has_Culture SET Temperature = ?, Humidity = ? WHERE Farm_idFarm = ?", [obj.Temperature,obj.Humidity,obj.id], function (err, rows) {
+            conn.release();
+            if (!(rows.length === 0)) {
+                callback({ code: 200, status: "Ok" }, rows);
+            }
+            else {
+                callback({ code: 401, status: "Error on update!" }, null);
+            }
+        })
+    })
+}
+

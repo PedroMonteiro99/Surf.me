@@ -14,4 +14,10 @@ router.get('/:id', function (req, res, next) {
   });
 });
 
+router.put('/update', function (req, res, next) {
+  farmDAO.updateFarm(req.body, function (result) {
+    res.send(result);
+  });
+});
+
 module.exports = router;
