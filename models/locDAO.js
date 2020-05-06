@@ -8,7 +8,7 @@ module.exports.getFarmLocation = function (callback, next) {
             callback(err, { code: 500, status: "Error in the connection to the database" })
             return;
         }
-        conn.query("Select Longitude,Latitude,idFarm from Farm",
+        conn.query("Select Longitude,Latitude,idFarm,User_idUsers from Farm",
 
             function (err, result) {
                 conn.release();
