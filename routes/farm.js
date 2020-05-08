@@ -20,4 +20,16 @@ router.put('/update', function (req, res, next) {
   });
 });
 
+router.get('/restrict/:id', function (req, res, next) {
+  var id = req.params.id
+  farmDAO.getRestrictions(id, function (status, result) {
+    if (status.code == 200)
+      res.send(result);
+    else {
+      res.statusMessage = status.status;
+      res.status(status.code).send({});
+    }
+  });
+});
+
 module.exports = router;

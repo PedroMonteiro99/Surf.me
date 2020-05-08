@@ -1,5 +1,6 @@
 var idUser;
 var current;
+var water = "Not Needed";
 
 function farm() {
     window.location = "farm.html"
@@ -40,9 +41,8 @@ window.onload = function () {
                         "<td>" + result[x].Name + "</td>" +
                         "<td>" + result[x].Humidity + " % </td>" +
                         "<td>" + result[x].Temperature + " ºC </td>" +
-                        "<td> Not Needed </td>"
+                        "<td>" + water + "</td>"
                 }
-
                 info.innerHTML = farm;
             },
             error: function (jqXHR, textStatus, errorThrown) {
@@ -56,12 +56,46 @@ window.onload = function () {
             url: "/api/farm/update",
             method: "put",
             data: {
-                Temperature: getRandomInt(current[x].Temperature - 0, current[0].Temperature + 2),
-                Humidity: getRandomInt(current[x].Humidity - 3, current[0].Humidity + 2),
+                Temperature: getRandomInt(current[x].Temperature - 1, current[0].Temperature + 1),
+                Humidity: getRandomInt(current[x].Humidity - 2, current[0].Humidity + 4),
                 id: current[x].Farm_idFarm,
             },
             success: function (result, status) {
-                console.log("Updated Sucessfully")
+                console.log("Updated Sucessfully in farm " + current[x].Farm_idFarm + "")
+                checkValues(current[x].idCulture, x)
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(errorThrown);
+            }
+        })
+    }
+
+    function checkValues(idCulture, x) {
+        $.ajax({
+            url: "/api/farm/restrict/" + idCulture,
+            method: "get",
+            success: function (result, status) {
+                console.log(result)
+                if (current[x].Temperature >= result[x].Max_Value) {
+                    console.log("Temperature is too high in farm " + current[x].Farm_idFarm + "!!")
+                    current[x].Temperature = result[x].Max_Value - 3
+                }
+                else if (current[x].Temperature <= result[x].Min_Value) {
+                    console.log("Temperature is too low in farm " + current[x].Farm_idFarm + "!!")
+                    current[x].Temperature = result[x].Min_Value + 5
+                }
+
+                if (current[x].Humidity >= result[1].Max_Value) {
+                    console.log("Humidity is too high in farm " + current[x].Farm_idFarm + "!!")
+                    current[x].Humidity = result[1].Max_Value - 10
+                    water =  "Not Needed"
+                }
+                else if (current[x].Humidity <= result[1].Min_Value) {
+                    console.log("Humidity is too low in farm " + current[x].Farm_idFarm + "!!")
+                    current[x].Humidity = result[1].Min_Value + 20
+                    water = "Needed"
+                }
+
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 console.log(errorThrown);
