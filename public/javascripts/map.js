@@ -59,6 +59,7 @@ window.onload = function () {
                         test.push(L.latLng(result[x].Latitude, result[x].Longitude))
                     }
                     console.log(result)
+                    console.log(result)
                     var legend = L.control({ position: "bottomleft" });
                     legend.onAdd = function () {
                         var div = L.DomUtil.create("div", "legend");
