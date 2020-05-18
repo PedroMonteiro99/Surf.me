@@ -6,7 +6,7 @@ module.exports.getCurrentData = function (id, callback, next) {
             conn.release();
             next(err);
         }
-        else conn.query("SELECT Farm_idFarm,Humidity,Temperature,Name,idCulture from Farm_has_Culture,Culture where Culture_idCulture = idCulture and Farm_User_idUsers=?", id, function (err, rows) {
+        else conn.query("SELECT Farm_idFarm,Humidity,Temperature,Name,idCulture,Water from Farm_has_Culture,Culture where Culture_idCulture = idCulture and Farm_User_idUsers=?", id, function (err, rows) {
             conn.release();
             if (!(rows.length === 0)) {
                 callback({ code: 200, status: "Ok" }, rows);
@@ -24,7 +24,7 @@ module.exports.updateFarm = function (obj, callback, next) {
             conn.release();
             next(err);
         }
-        else conn.query("UPDATE Farm_has_Culture SET Temperature = ?, Humidity = ? WHERE Farm_idFarm = ?", [obj.Temperature,obj.Humidity,obj.id], function (err, rows) {
+        else conn.query("UPDATE Farm_has_Culture SET Temperature = ?, Humidity = ?, Water= ? WHERE Farm_idFarm = ?", [obj.Temperature, obj.Humidity, obj.Water, obj.id], function (err, rows) {
             conn.release();
             if (!(rows.length === 0)) {
                 callback({ code: 200, status: "Ok" }, rows);
@@ -54,4 +54,56 @@ module.exports.getRestrictions = function (id, callback, next) {
     })
 }
 
+module.exports.getidCulture = function (id, callback, next) {
+    mysql.getConnection(function (err, conn) {
+        if (err) {
+            conn.release();
+            next(err);
+        }
+        else conn.query("SELECT idCulture FROM Culture WHERE Name =?", id, function (err, rows) {
+            conn.release();
+            if (!(rows.length === 0)) {
+                callback({ code: 200, status: "Ok" }, rows);
+            }
+            else {
+                callback({ code: 401, status: "Farm not found!" }, null);
+            }
+        })
+    })
+}
 
+module.exports.postFarm = function (obj, callback, next) {
+    mysql.getConnection(function (err, conn) {
+        if (err) {
+            conn.release();
+            next(err);
+        }
+        else conn.query("INSERT INTO Farm(Longitude, Latitude, Sensor_Quantity, Culture_Quantity, User_idUsers) VALUES (?,?,2,1,?)", [obj.Longitude,obj.Latitude,obj.User], function (err, rows) {
+            conn.release();
+            if (!(rows.length === 0)) {
+                callback({ code: 200, status: "Ok" }, rows);
+            }
+            else {
+                callback({ code: 401, status: "Farm not found!" }, null);
+            }
+        })
+    })
+}
+
+module.exports.postSensor = function (obj, callback, next) {
+    mysql.getConnection(function (err, conn) {
+        if (err) {
+            conn.release();
+            next(err);
+        }
+        else conn.query("INSERT INTO Farm_has_Culture(Farm_idFarm, Farm_User_idUsers, Culture_idCulture, Temperature, Humidity,Water) VALUES (?,?,?,15,60,'Not Needed')", [obj.idFarm,obj.idUser,obj.idCulture], function (err, rows) {
+            conn.release();
+            if (!(rows.length === 0)) {
+                callback({ code: 200, status: "Ok" }, rows);
+            }
+            else {
+                callback({ code: 401, status: "Farm not found!" }, null);
+            }
+        })
+    })
+}

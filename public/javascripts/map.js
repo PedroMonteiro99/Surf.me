@@ -59,6 +59,16 @@ window.onload = function () {
                         test.push(L.latLng(result[x].Latitude, result[x].Longitude))
                     }
                     console.log(result)
+                    var legend = L.control({ position: "bottomleft" });
+                    legend.onAdd = function () {
+                        var div = L.DomUtil.create("div", "legend");
+                        div.innerHTML += "<h4>Map Legend</h4>";
+                        div.innerHTML += '<i style="background: black"></i><span>Current Position</span><br>';
+                        div.innerHTML += '<i style="background: lawngreen"></i><span>Your Farms</span><br>';
+                        div.innerHTML += '<i style="background: blue"></i><span>Other Users Farms</span><br>';
+                        return div;
+                    };
+                    legend.addTo(map);
                     control = L.Routing.control({
                         plan: L.Routing.plan(test, {
                             createMarker: function (x, test, nWps) {
@@ -67,9 +77,9 @@ window.onload = function () {
                                 }
                                 if (x >= 1) {
                                     if (idUser == result[x - 1].User_idUsers)
-                                        return L.marker(test.latLng, {draggable: false, icon: greenIcon}).bindPopup("" + result[x - 1].idFarm + "").openPopup();
+                                        return L.marker(test.latLng, { draggable: false, icon: greenIcon }).bindPopup("" + result[x - 1].idFarm + "").openPopup();
                                     else
-                                        return L.marker(test.latLng, {draggable: false}).bindPopup("" + result[x - 1].idFarm + "").openPopup();
+                                        return L.marker(test.latLng, { draggable: false }).bindPopup("" + result[x - 1].idFarm + "").openPopup();
                                 }
                             }
                         }),

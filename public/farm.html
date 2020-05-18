@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="stylesheets/farm.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="javascripts/farm.js"></script>
 </head>
 
@@ -13,7 +14,7 @@
     <nav class="navbar">
         <ul class="navbar-nav">
             <li class="logo">
-                <a class="nav-link">
+                <a href="main.html" class="nav-link">
                     <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="angle-double-right"
                         role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
                         class="svg-inline--fa fa-angle-double-right fa-w-14 fa-5x">
@@ -30,7 +31,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a onclick="farm()" class="nav-link">
+                <a href="farm.html" class="nav-link">
                     <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="canadian-maple-leaf"
                         class="svg-inline--fa fa-canadian-maple-leaf fa-w-16" role="img"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -47,7 +48,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a onclick="neighbours()" class="nav-link">
+                <a href="main.html" class="nav-link">
                     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user-friends"
                         class="svg-inline--fa fa-user-friends fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 640 512">
@@ -61,6 +62,23 @@
                         </path>
                     </svg>
                     <span class="link-text">Neighbours</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="create.html" class="nav-link">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus"
+                        class="svg-inline--fa fa-plus fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 448 512">
+                        <path fill="currentColor"
+                            d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
+                            class="fa-primary">
+                        </path>
+                        <path fill="currentColor"
+                            d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
+                            class="fa-secondary">
+                        </path>
+                    </svg>
+                    <span class="link-text">Add Farm</span>
                 </a>
             </li>
             <li class="nav-item" id="themeButton">
