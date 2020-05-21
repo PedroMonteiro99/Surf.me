@@ -59,7 +59,6 @@ window.onload = function () {
                         test.push(L.latLng(result[x].Latitude, result[x].Longitude))
                     }
                     console.log(result)
-                    console.log(result)
                     var legend = L.control({ position: "bottomleft" });
                     legend.onAdd = function () {
                         var div = L.DomUtil.create("div", "legend");
@@ -78,9 +77,9 @@ window.onload = function () {
                                 }
                                 if (x >= 1) {
                                     if (idUser == result[x - 1].User_idUsers)
-                                        return L.marker(test.latLng, { draggable: false, icon: greenIcon }).bindPopup("" + result[x - 1].idFarm + "").openPopup();
+                                        return L.marker(test.latLng, { draggable: false, icon: greenIcon }).bindPopup("Culture: <b>" + result[x - 1].Name + "</b> <br> Farmer: <b>"+result[x-1].Username+"<b>").openPopup();
                                     else
-                                        return L.marker(test.latLng, { draggable: false }).bindPopup("" + result[x - 1].idFarm + "").openPopup();
+                                        return L.marker(test.latLng, { draggable: false }).bindPopup("Culture: <b>" + result[x - 1].Name + "</b> <br> Farmer: <b>"+result[x-1].Username+"<b>").openPopup();
                                 }
                             }
                         }),
