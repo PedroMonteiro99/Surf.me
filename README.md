@@ -24,9 +24,10 @@
   </tr>
    </table>
 
-<h3>Scope:</h3>
-This project allocates an IP address to a provided domain name. 
-
+<h3>Âmbito:</h3>
+O conceito de Urban Farms tem vindo a crescer e está associado a uma população jovem e próxima das novas tecnologias.
+Neste projeto pretende-se criar uma plataforma de suporte a hortas urbanas que permita no futuro vir a dar suporte a hortas automatizadas ou Smart Urban Farms. 
+A plataforma deve assim combinar a gestão de informação genérica sobre hortas existente em qualquer horta (automática ou “manual”) com a gestão de informação referente a produtos de automatização, em particular a informação sobre a estrutura física de sensores e atuadores, e os dados gerados pelos mesmos.
 
 </body>
 </html>
