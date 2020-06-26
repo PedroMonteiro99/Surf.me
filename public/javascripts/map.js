@@ -49,7 +49,6 @@ window.onload = function () {
             var tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
             var tiles = L.tileLayer(tileUrl, { attribution });
             tiles.addTo(map);
-
             $.ajax({
                 url: '/api/location/loc',
                 method: 'get',
