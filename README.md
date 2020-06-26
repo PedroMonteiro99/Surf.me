@@ -31,10 +31,10 @@ A plataforma deve assim combinar a gestão de informação genérica sobre horta
 
 <h3>Cenário Principal:</h3>
 
-Assumindo que o utilizador já se encontra com o login efetuado e com uma conta criada, o utilizador está na página principal, onde ao clicar em “Minhas Hortas” este consegue visualizar todas as informação referentes ás suas hortas incluindo características das culturas, dicas sobre produção,sensores e entre outros.
+Assumindo que o utilizador já se encontra com o login efetuado e com uma conta criada, o utilizador está na página principal, onde ao clicar em “My Farms” este consegue visualizar todas as informação referentes ás suas hortas incluindo características das culturas, dicas sobre produção,sensores e entre outros.
 
 <h3>Cenários Secundários:</h3>
 
-Assumindo que o utilizador já se encontra com o login efetuado e com uma conta criada, o utilizador está na página principal, onde ao clicar em “Vizinhança” este consegue visualizar um mapa onde é possível ver a localização das Urban Farms e as hortas em seu redor. Ao clicar na horta aparecerá informação relativa á mesma indicando o seu proprietário e o tipo de cultura.
+Assumindo que o utilizador já se encontra com o login efetuado e com uma conta criada, o utilizador está na página principal, onde ao clicar em “Neighbours” este consegue visualizar um mapa onde é possível ver a localização das Urban Farms e as hortas em seu redor. Ao clicar na horta aparecerá informação relativa á mesma indicando o seu proprietário e o tipo de cultura.Caso clique em “Add Farm” o utilizador consiguirá criar novas farms tendo apenas que indicar informações relativas a farm e ao utilizador.
 </body>
 </html>
