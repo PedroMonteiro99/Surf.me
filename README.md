@@ -35,6 +35,6 @@ Assumindo que o utilizador já se encontra com o login efetuado e com uma conta 
 
 <h3>Cenários Secundários:</h3>
 
-Assumindo que o utilizador já se encontra com o login efetuado e com uma conta criada, o utilizador está na página principal, onde ao clicar em “Neighbours” este consegue visualizar um mapa onde é possível ver a localização das Urban Farms e as hortas em seu redor. Ao clicar na horta aparecerá informação relativa á mesma indicando o seu proprietário e o tipo de cultura.Caso clique em “Add Farm” o utilizador consiguirá criar novas farms tendo apenas que indicar informações relativas a farm e ao utilizador.
+Assumindo que o utilizador já se encontra com o login efetuado e com uma conta criada, o utilizador está na página principal, onde ao clicar em “Neighbours” este consegue visualizar um mapa onde é possível ver a localização das Urban Farms e as hortas em seu redor. Ao clicar na horta aparecerá informação relativa á mesma indicando o seu proprietário e o tipo de cultura. Caso clique em “Add Farm” o utilizador consiguirá criar novas farms tendo apenas que indicar informações relativas a farm e ao utilizador.
 </body>
 </html>
